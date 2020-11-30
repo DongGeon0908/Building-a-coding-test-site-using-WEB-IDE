@@ -23,6 +23,6 @@
 
 ## 5. Contributers
 
-한신대학교 김동건 @wrjs<br> 
-한국산업기술대학교 김민지 @mindi1206<br>
-서울과학기술대학교 오승재 @oh980225<br>
+- [한신대학교 김동건](https://github.com/DongGeon0908)
+- [한국산업기술대학교 김민지](https://github.com/mindi1206)
+- [서울과학기술대학교 오승재](https://github.com/oh980225)
