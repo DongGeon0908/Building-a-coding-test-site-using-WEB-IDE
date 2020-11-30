@@ -1,0 +1,39 @@
+header#header {
+    height: 3.5em;
+    display: block;
+    padding: 0;
+    background-color: rgb(17, 20, 31);
+     margin-bottom: 0em; 
+}
+div.inner img{
+    width: 25em;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1.5em;
+}
+
+#main > .inner > section {
+    padding: 5em 0 0 0;
+}
+
+div.inner .red{
+	font-family: "UhBeemysen";
+	margin-bottom: 1em;
+	color: #EA7862;
+}
+
+div.inner p.info{
+	font-family: "UhBeemysen";
+	text-align:center;
+    margin: 0 auto;
+    font-size:4em;
+}
+div.inner a.move{
+	margin-top: 1.5em;
+    text-align: center;
+    width: 28em;
+    margin: 1em auto;
+    display: block;
+    color: #79BCC3;
+    font-size: 1.5em;
+}

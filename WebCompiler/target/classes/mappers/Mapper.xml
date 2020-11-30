@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.dms.web.mapper.Mapper">
+
+<resultMap type="CodeVO" id="CodeVO">
+	<result column="problem_id" property="problem_id"/>
+	<result column="user_id" property="user_id"/>
+</resultMap>
+<resultMap type="ProblemVO" id="ProblemVO">
+	<result column="problem_id" property="problem_id"/>
+	<result column="problem_title" property="problem_title"/>
+	<result column="problem_level" property="problem_level"/>
+	<result column="category_id" property="category_id"/>
+</resultMap>
+
+<resultMap type="CodeFilterVO" id="CodeFilterVO">
+	<collection property="pvo" resultMap="ProblemVO"></collection>
+	<collection property="cvo" resultMap="CodeVO"></collection>
+</resultMap>
+
+  
+ 	<select id="getTime" resultType="string">
+ 		select now()
+ 	</select>
+ 	
+     <insert id="user_insert"> <!-- 수정해주세요 -->
+   		insert into user (user_id, user_passwd, user_name, user_introduce) values
+ 		(#{user_id}, #{user_passwd}, #{user_name}, #{user_introduce})
+     </insert> 
+     
+     <select id="user_selectById" resultType="UserVO">
+ 		select * from user where user_id = #{id}
+ 	</select>
+
+ 	
+     <select id="user_selectForLogin" resultType="UserVO">
+ 		select * from user where user_id = #{user_id} and user_passwd = #{user_passwd}
+     </select>
+ 	
+     <select id="user_selectAll" resultType="UserVO">
+ 		select * from user
+     </select>
+     
+     <select id="user_selectCodeList" resultType="CodeVO">
+     	select * from code where user_id = #{id} order by code_date desc
+     </select>
+ 	
+     <update id="user_update" parameterType="UserVO"> 
+ 		update user set user_name = #{user_name}, user_introduce = #{user_introduce} where user_id = #{user_id}
+     </update>
+     
+     <update id="save_img" parameterType="UserVO"> 
+   		update user set user_img = #{user_img} where user_id = #{user_id}
+     </update> 
+ 
+    <delete id="user_deleteById">
+		delete from user where user_id = #{id}
+    </delete>
+    
+    <select id="check_user_id" resultType="UserVO">
+     	select * from user where user_id = #{value};
+     </select>
+    
+    <insert id="board_insert_free">
+    	insert into board (board_title, board_content, board_upload, user_id, problem_id) values (#{board_title}, #{board_content}, #{board_upload}, #{user_id}, #{problem_id})
+    </insert>
+    <insert id="board_insert_question">
+    	insert into board (board_title, board_content, board_upload, user_id) values (#{board_title}, #{board_content}, #{board_upload}, #{user_id})
+    </insert>
+    <select id="board_selectByid" resultType="BoardVO">
+    	select * from board where board_id=#{board_id}
+    </select>
+    <select id="board_selectAll" resultType="BoardVO">
+    <![CDATA[
+    	select * from board order by board_upload desc limit #{pageStart}, #{perPageNum}
+    ]]> 
+    </select>
+    <update id="update test">
+    	update board set board_content =
+    </update>
+    <update id="board_update_free">
+    	update board set board_id = #{board_id}, board_title = #{board_title}, board_content= #{board_content} , board_upload = #{board_upload}, user_id = #{user_id} where board_id = #{board_id}
+    </update>
+    <update id="board_update_question">
+    	update board set board_id = #{board_id}, board_title = #{board_title}, board_content= #{board_content} , board_upload = #{board_upload}, user_id = #{user_id}, problem_id = #{problem_id} where board_id = #{board_id}
+    </update>
+    <delete id="board_delete">
+    	delete from board where board_id=#{board_id}
+    </delete>
+    <select id="board_count" resultType="int">
+    	<![CDATA[
+    	select COUNT(board_id) from board
+    	]]>	
+    </select>
+    <!-- 댓글 -->
+    <select id="comment_selectAll" resultType="CommentsVO">
+    	<![CDATA[
+ 			select * from comments where board_id = ${board_id}
+     	]]> 	
+    </select>
+    <insert id="comment_insert">
+    		insert into comments (comments_content, user_id, comments_upload, board_id) values (#{comments_content}, #{user_id}, #{comments_upload}, #{board_id})
+    </insert>
+    <delete id ="comment_delete">
+    		delete from comments where comments_id = #{comments_id}
+    </delete>
+    <select id="comment_count" resultType="int">
+    	select COUNT(comments_id) from comments where board_id = ${board_id}
+    </select>
+    
+    <!-- 카테고리 -->
+    <select id="category_selectAll" resultType="CategoryVO">
+    <![CDATA[
+ 		select * from category
+     ]]> 
+    
+    </select>
+    <!-- 문제 -->
+     <select id="problem_selectAll" resultType="ProblemVO">
+    	select * from problem
+    </select>
+    <select id="problem_selectBylevel" resultType="ProblemVO">
+    	select * from problem where problem_level = #{problem_level} and category_id = #{category_id}
+    </select>
+    <select id="problem_selectByid" resultType="ProblemVO">
+    	select * from problem where problem_id = #{problem_id}
+    </select>
+    
+    <update id="problem_add_submit" parameterType="int"> 
+   		update problem set problem_submitnum = problem_submitnum + 1 where problem_id=#{problem_id};
+     </update>
+     
+    <update id="problem_add_success" parameterType="int"> 
+   		update problem set problem_successnum = problem_successnum + 1 where problem_id=#{problem_id};
+     </update>
+     
+    <select id="problem_language_success" parameterType="hashmap" resultType="byte"> 
+    	select code_language, code_success from code
+    	where problem_id = #{problem_id} and and code_language = #{code_language} and user_id = #{user_id} and code_success=1 limit 1
+    </select>
+    
+    <select id="listPaging" resultType="ProblemVO">
+    	select * from problem limit #{page}, 8
+    </select>
+    <select id="listCount" resultType="int">
+    	select COUNT(problem_id) from problem
+    </select>
+    
+    <select id="listCountByCategory" resultType="int">
+    	select COUNT(problem_id) from problem where category_id = #{category_id} 
+    </select>
+    <select id="listCountFilter" resultType="int">
+    	select COUNT(problem_id) from problem where problem_level = #{problem_level} and category_id = #{category_id} 
+    </select>
+    
+    <select id="listCriteria" resultType="ProblemVO">
+    	select * from problem limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="listCriteriaFilter" resultType="ProblemVO">
+    	select * from problem where problem_level = #{problem_level} and category_id = #{category_id}  limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="problem_selectByLevel" resultType="ProblemVO">
+    	select * from problem where problem_level = #{problem_level} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="problem_selectByCategory" resultType="ProblemVO">
+    	select * from problem where category_id = #{category_id} limit #{pageStart}, #{perPageNum}
+    </select>
+    <!-- 검색 -->
+    <select id="problem_search_by_id" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_id LIKE CONCAT('%',#{problem_id},'%') limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="problem_search_by_title" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_title LIKE CONCAT('%',#{problem_title},'%') limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="count_search_by_id" resultType="int">
+    	select COUNT(problem_id) from problem where problem_id LIKE CONCAT('%',#{searchInput},'%')
+    </select>
+    
+    <select id="count_search_by_title" resultType="int">
+    	select COUNT(problem_id) from problem where problem_title LIKE CONCAT('%',#{searchInput},'%')
+    </select>
+    <!-- 검색 + 카테고리 -->
+    <select id="problem_search_by_id_by_category" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_id LIKE CONCAT('%',#{problem_id},'%') and category_id = #{category} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="problem_search_by_title_by_category" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_title LIKE CONCAT('%',#{problem_title},'%') and category_id = #{category} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="count_search_by_id_by_category" parameterType="hashmap" resultType="int">
+    	select COUNT(problem_id) from problem where problem_id LIKE CONCAT('%',#{searchInput},'%') and category_id = #{category}
+    </select>
+    
+    <select id="count_search_by_title_by_category" parameterType="hashmap" resultType="int">
+    	select COUNT(problem_id) from problem where problem_title LIKE CONCAT('%',#{searchInput},'%') and category_id = #{category}
+    </select>
+    <!-- 검색 + 레벨 -->
+    <select id="problem_search_by_id_by_level" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_id LIKE CONCAT('%',#{problem_id},'%') and problem_level = #{level} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="problem_search_by_title_by_level" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_title LIKE CONCAT('%',#{problem_title},'%') and problem_level = #{level} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="count_search_by_id_by_level" parameterType="hashmap" resultType="int">
+    	select COUNT(problem_id) from problem where problem_id LIKE CONCAT('%',#{searchInput},'%') and problem_level = #{level}
+    </select>
+    
+    <select id="count_search_by_title_by_level" parameterType="hashmap" resultType="int">
+    	select COUNT(problem_id) from problem where problem_title LIKE CONCAT('%',#{searchInput},'%') and problem_level = #{level}
+    </select>
+    <!-- 검색 + 카테고리 + 레벨 -->
+    <select id="problem_search_by_id_by_category_and_level" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_id LIKE CONCAT('%',#{problem_id},'%') and category_id = #{category} and problem_level = #{level} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="problem_search_by_title_by_category_and_level" parameterType="hashmap" resultType="ProblemVO">
+    	select * from problem where problem_title LIKE CONCAT('%',#{problem_title},'%') and category_id = #{category} and problem_level = #{level} limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="count_search_by_id_by_category_and_level" parameterType="hashmap" resultType="int">
+    	select COUNT(problem_id) from problem where problem_id LIKE CONCAT('%',#{searchInput},'%') and category_id = #{category} and problem_level = #{level}
+    </select>
+    
+    <select id="count_search_by_title_by_category_and_level" parameterType="hashmap" resultType="int">
+    	select COUNT(problem_id) from problem where problem_title LIKE CONCAT('%',#{searchInput},'%') and category_id = #{category} and problem_level = #{level}
+    </select>
+    
+    <!-- 채팅  -->
+    <insert id="chat_insert">
+    	insert into chat (chat_content, chat_date, user_id, problem_id) values (#{chat_content}, #{chat_date}, #{user_id}, #{problem_id})
+    </insert>
+    
+    <!-- 채팅  -->
+    <select id="chat_selectAll" resultType="ChatVO">
+    	select * from chat where problem_id = #{problem_id}
+    </select>
+    
+    <insert id="problem_insert">
+    <!-- private int problem_id;
+	private String problem_title;
+	private String problem_content;
+	private String problem_hint;
+	private int problem_time;
+	
+	private int problem_submitnum;
+	private int problem_sucessnum;
+	private int problem_failnum;
+	private int problem_level;
+	private String category_id; -->
+    
+    	insert into problem (problem_id, problem_title, problem_content, problem_hint, problem_time,
+    	problem_submitnum, problem_successnum, problem_failnum, problem_level, category_id )
+    	values (#{problem_id}, #{problem_title}, #{problem_content}, #{problem_hint}, #{problem_time},
+    	#{problem_submitnum}, #{problem_successnum}, #{problem_failnum}, #{problem_level}, #{category_id})
+    </insert>
+    
+    <select id="check_problem_exist" resultType="int">
+    	select COUNT(problem_id) from problem where problem_id = #{problem_id};
+    </select>
+    
+    <!-- 테스트케이스 -->
+    <select id="testcase_selectByid" resultType="TestcaseVO">
+    	<!-- 테스트케이스 하나만 갖고옴 -->
+    	select * from testcase where problem_id = #{problem_id} limit 1;
+    </select>
+    <insert id="testcase_insert">
+    	insert into testcase (testcase_input, testcase_output, problem_id) values (#{testcase_input}, #{testcase_output}, #{problem_id})
+    </insert>
+    <!-- 게시판 -->  
+    <select id="testcase_input_selectList" resultType="String"> 
+    	select testcase_input from testcase where problem_id= #{problem_id} 
+    </select>
+    
+    <select id="testcase_output_selectList" resultType="String"> 
+    	select testcase_output from testcase where problem_id= #{problem_id} 
+    </select>
+    
+    <!-- 코드조회 게시판 -->
+    <select id="codeboard_problem_id_list" resultType="Integer"> 
+    	select distinct problem_id  from code where user_id = #{user_id}
+    </select>
+    
+    <select id="codeboard_problem_id_list_by_problem_id" parameterType="hashmap" resultType="Integer"> 
+    	select distinct problem_id  from code where user_id = #{user_id} and problem_id LIKE CONCAT('%',#{search_id},'%')         
+    </select>
+    
+    <select id="codeboard_problem_id_list_by_problem_id_criteria" parameterType="hashmap" resultType="Integer"> 
+    	select distinct problem_id  from code where user_id = #{user_id} and problem_id LIKE CONCAT('%',#{search_id},'%') limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="codeboard_problem_id_list_by_search_title" parameterType="String" resultType="Integer"> 
+    	select problem_id from problem where problem_title LIKE CONCAT('%',#{search},'%')
+    </select>
+    
+    <select id="codeboard_problem_id_list_by_search_title_criteria" resultType="Integer"> 
+    	select problem_id from problem where problem_title LIKE CONCAT('%',#{search},'%') limit #{pageStart}, #{perPageNum}
+    </select>
+    
+    <select id="codeboard_problem_title" resultType="String"> 
+    	select problem_title from problem where problem_id = #{problem_id}
+    </select>
+    
+    <select id="codeboard_category_id" resultType="String"> 
+    	select category_id from problem where problem_id = #{problem_id}
+    </select>
+    
+    <select id="codeboard_code_success" parameterType="hashmap" resultType="byte"> 
+    	select code_success from code where problem_id = #{problem_id} and user_id = #{user_id} and code_success=1 limit 1
+    </select>
+	
+	<select id="codeboard_code_date" resultType="Date"> 
+    	select code_date from code where problem_id = #{problem_id} order by code_date desc limit 1
+    </select>
+    
+    <select id="codeboard_problem_level" resultType="Integer"> 
+    	select problem_level from problem where problem_id = #{problem_id}
+    </select>
+    
+    <select id="codeboard_codeList" parameterType="hashmap" resultType="CodeVO">
+     	select * from code where problem_id= #{problem_id} and user_id = #{user_id} order by code_date desc
+     </select>
+     
+     <select id="codeboard_problem_id_list_criteria" parameterType="hashmap" resultType="Integer">
+    	select distinct problem_id  from code where user_id = #{user_id} limit #{pageStart}, #{perPageNum}
+     </select>
+     
+     <select id="codeboard_filter_category" resultType="CodeBoardVO">   
+    	select c.problem_id, c.user_id, p.problem_title, p.problem_level, p.category_id from code as c
+    	join problem as p
+    	on (p.problem_id = c.problem_id and user_id =#{user_id})
+    	where p.category_id = #{category_id} limit #{pageStart}, #{perPageNum}	
+     </select>
+ 
+     <select id="codeboard_filter_level" resultType="CodeBoardVO">
+    	select c.problem_id, c.user_id, p.problem_title, p.problem_level, p.category_id from code as c join problem as p on p.problem_id = c.problem_id and user_id = #{user_id}
+    	where p.problem_level = #{problem_level} limit #{pageStart}, #{perPageNum}
+     </select>
+ 
+     <select id="codeboard_filter_all" resultType="CodeBoardVO">   
+    	select c.problem_id, c.user_id, p.problem_title, p.problem_level, p.category_id from code as c join problem as p on (p.problem_id = c.problem_id and user_id = #{user_id})
+    	where p.category_id = #{category_id} and p.problem_level = #{problem_level}
+    	limit #{pageStart}, #{perPageNum}	
+     </select>
+
+     <!-- select distinct problem_id  from code where user_id = #{user_id} order by code_date desc limit #{pageStart}, #{perPageNum} -->
+   
+    <!-- 코드테이블 관련 -->
+    <insert id="submit_code" parameterType="CodeVO">
+    	insert into code(code_code, code_language, code_success, user_id, problem_id, code_date) values(#{code_code}, #{code_language}, #{code_success}, #{user_id}, #{problem_id}, #{code_date})
+    </insert>
+    
+    <select id="code_success" parameterType="hashmap" resultType="byte">
+    	select distinct code_success from code where user_id=#{user_id} and problem_id=#{problem_id} and code_success=1;
+    </select>
+    
+</mapper>  
