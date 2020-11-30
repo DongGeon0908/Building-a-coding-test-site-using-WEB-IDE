@@ -3,6 +3,9 @@
 ## 1. Introduction
 2020 한이음 공모전 웹 IDE를 이용한 코딩테스트 사이트 입니다.
 
+- 어디서나 쉽고 빠르게 무료로 이용할 수 있는 교육용 웹 컴파일러 사이트 
+- 다양한 문제, 코드작성 환경과 소통 공간을 제공하여 알고리즘 실력을 향상
+
 ## 2. Setup
 
 </br>
@@ -24,6 +27,7 @@
 - [Back](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Back.md)
 - [Server](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Server.md)
 - [Api](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Api.md)
+- [Sql](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Sql.md)
 
 ## 5. Contributers
 
