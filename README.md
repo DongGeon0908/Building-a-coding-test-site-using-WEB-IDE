@@ -6,7 +6,7 @@
 - 어디서나 쉽고 빠르게 무료로 이용할 수 있는 교육용 웹 컴파일러 사이트 
 - 다양한 문제, 코드작성 환경과 소통 공간을 제공하여 알고리즘 실력을 향상
 
-![Main Page]()
+<img width="500" src = "https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/view/mainPage.png">
 
 ## 2. Setup
 
