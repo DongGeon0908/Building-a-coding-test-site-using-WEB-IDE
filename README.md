@@ -34,6 +34,4 @@
 - [Server](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Server.md)
 - [Api](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Api.md)
 - [Sql](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/md/Sql.md)
-- [ROOT.war](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/tree/master/result/ROOT.md)
-
-
+- [ROOT.war](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/result/ROOT.war)
