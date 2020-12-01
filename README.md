@@ -32,7 +32,7 @@
 
 ## 5. Contributers
 
-![kko](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/who%20is%20kko/kko.jpg)
+![kko](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/who%20is%20kko/kko!.jpg)
 - [한신대학교 김동건](https://github.com/DongGeon0908)
 - [한국산업기술대학교 김민지](https://github.com/mindi1206)
 - [서울과학기술대학교 오승재](https://github.com/oh980225)
