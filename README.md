@@ -13,7 +13,7 @@
     Server : Ubuntu 18.04 LTS, Apache Tomcat 9.0
     Framework : Spring 4.0, Java 14.0.2
     Database : MySQL
-    Aws : 
+    Aws : m5.4xlarge `TCP`, `SSH`, `SCP`, `RDP`
 
 ## 3. Run
     http://52.78.208.225:8080
