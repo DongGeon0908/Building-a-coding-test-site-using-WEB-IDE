@@ -6,16 +6,6 @@
 
 - apt install
 ```
-gcc 7.5.0
-g++
-nodeJS 8.10.0
-python3 2.7.17
-jdk - 14.0.2
-bc
-mysql-server
-```
-
-```
 ubuntu@ip-172-31-54-102:/usr/local/apache$ dpkg -l
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
