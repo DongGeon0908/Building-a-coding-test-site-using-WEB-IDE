@@ -74,7 +74,6 @@ ii  dmidecode      3.1-1ubuntu0 amd64        SMBIOS/DMI table decoder
 ii  dmsetup        2:1.02.145-4 amd64        Linux Kernel Device Mapper usersp
 ii  dns-root-data  2018013001   all          DNS root data including root zone
 ii  dnsmasq-base   2.79-1       amd64        Small caching DNS proxy and DHCP/
-ii  dnsutils       1:9.11.3+dfs amd64        Clients provided with BIND
 ii  docker-ce      5:19.03.12~3 amd64        Docker: the open-source applicati
 ii  docker-ce-cli  5:19.03.12~3 amd64        Docker CLI: the open-source appli
 ii  dosfstools     4.1-1        amd64        utilities for making and checking
