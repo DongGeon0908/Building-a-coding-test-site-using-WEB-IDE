@@ -48,9 +48,9 @@
 - [All-Source](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/tree/master/WebCompiler)
 - [Sql](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/sql/kko_final.sql)
 - [ROOT.war](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/result/ROOT.war)
-- [요구사항 명세서](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/result/ROOT.war)
-- [프로젝트 설계서](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/result/ROOT.war)
-- [프로젝트 보고서](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/result/ROOT.war)
+- [요구사항 명세서](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/text/%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%20%EC%A0%95%EC%9D%98.pdf)
+- [프로젝트 설계서](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/text/%EC%84%A4%EA%B3%84%EC%84%9C.pdf)
+- [프로젝트 보고서](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/text/%EB%B3%B4%EA%B3%A0%EC%84%9C.pdf)
 
 <br>
 
