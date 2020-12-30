@@ -28,12 +28,22 @@
   - Database : MySQL
   - Aws : m5.4xlarge > TCP > SSH > SCP > RDP
 
+<br>
+
+### 📚Main Library
+
+<br>
+
 ### 🚔Run
 > http://52.78.208.225:8080
 
 </br>
 
-### File
+### 📸 Picture
+
+<br>
+
+### 📥File
 
 - [All-Source](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/tree/master/WebCompiler)
 - [Sql](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/sql/kko_final.sql)
@@ -48,3 +58,18 @@
 - [한신대학교 김동건](https://github.com/DongGeon0908)
 - [한국산업기술대학교 김민지](https://github.com/mindi1206)
 - [서울과학기술대학교 오승재](https://github.com/oh980225)
+
+### 🤟Result
+
+<br>
+
+### 📖References
+- [Monaco IDE](https://microsoft.github.io/monaco-editor/)
+- [알고리즘 풀이사이트](https://www.acmicpc.net/)
+
+<br>
+
+### 🔗Link
+- [한이음 GITLAB](https://lab.hanium.or.kr/20_hf431/main)
+- [프로젝트 시연 동영상](https://www.youtube.com/watch?v=OKVbpmrrtYc)
+- [수상내역](http://www.hanium.or.kr/portal/project/awardView.do)
