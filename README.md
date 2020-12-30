@@ -19,10 +19,15 @@
 
 ### 📸 Picture
 <img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/main.png">
+<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/pic5.png">
+<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/pic6.png">
+<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/pic7.png">
+
 
 <br>
 
 ### 🔧Environment
+  - AWS : 4XLarge EC2
   - Server : Ubuntu 18.04 LTS, Apache Tomcat 9.0
   - Framework : Spring 4.0, Java 14.0.2
   - Database : MySQL
