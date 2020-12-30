@@ -5,9 +5,6 @@
 <br>
 
 ### ©CopyRight
-
-> KKO
-> 김동건 김민지 오승재
 > CodeSpace
 
 <br>
@@ -33,23 +30,21 @@
 ### 🚔Run
 > http://52.78.208.225:8080
 
+> 현재 LOCAL-SERVICE만 가능합니다.
+
 </br>
 
 ### 📸 Picture
+<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/main.png">
 
 <br>
 
-
-
-
 ### 📚Database
-
-<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/who%20is%20kko/kko!.jpg">
+<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/erd.png">
 
 <br>
 
 ### 📥File
-
 - [All-Source](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/tree/master/WebCompiler)
 - [Sql](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/sql/kko_final.sql)
 - [ROOT.war](https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/result/ROOT.war)
@@ -57,7 +52,6 @@
 <br>
 
 ### 👪Contributers
-
 <img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/who%20is%20kko/kko!.jpg">
 
 - [한신대학교 김동건](https://github.com/DongGeon0908)
