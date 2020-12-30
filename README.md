@@ -15,7 +15,10 @@
 - 어디서나 쉽고 빠르게 무료로 이용할 수 있는 교육용 웹 컴파일러 사이트 
 - 다양한 문제, 코드작성 환경과 소통 공간을 제공하여 알고리즘 실력을 향상
 
-<img width="500" src = "https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/view/mainPage.png">
+<br>
+
+### 📸 Picture
+<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/main.png">
 
 <br>
 
@@ -24,6 +27,9 @@
   - Framework : Spring 4.0, Java 14.0.2
   - Database : MySQL
   - Aws : m5.4xlarge > TCP > SSH > SCP > RDP
+  - JDK-14.0.2
+  - Nodejs
+  - Python3
 
 <br>
 
@@ -33,11 +39,6 @@
 > 현재 LOCAL-SERVICE만 가능합니다.
 
 </br>
-
-### 📸 Picture
-<img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/main.png">
-
-<br>
 
 ### 📚Database
 <img src="https://github.com/DongGeon0908/Building-a-coding-test-site-using-WEB-IDE/blob/master/pic/erd.png">
